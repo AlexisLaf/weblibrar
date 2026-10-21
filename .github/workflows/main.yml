@@ -15,4 +15,5 @@ jobs:
       with:
         username: 'AlexisLaf'
         reponame: 'weblibrar'
+        basebranchname: 'main'
         token: ${{ secrets.GITHUB_TOKEN }} # no need to change this line this is used to create the branch in your application repository
