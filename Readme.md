@@ -2,6 +2,7 @@
 # The working site can be find deployed on github pages:
 
 [Vue deployed website](http(s)://AlexisLaf.github.io/weblibrar)
+This doesn't seem to work from a bot.
 
 ### Prototype
 
@@ -25,8 +26,9 @@ And he doesn't like application that evolve and change every years. While we can
 
 # Run manually :
 
-You will need to first need to open a CMD inside the project folder then you can execute the two following commands and follow the instructions to host locally the site.
+You will need to first need to open a CMD inside the project folder then you can execute the three following commands and follow the instructions to host locally the site.
 
 ```shell
 npm install
+npm run build
 npm run preview```
