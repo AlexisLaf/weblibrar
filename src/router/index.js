@@ -4,6 +4,7 @@ import Library from '@/components/Library/library.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  BASE_URL: '/weblibrar/',
   routes: [
     {
       path: '/',

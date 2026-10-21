@@ -1,8 +1,7 @@
 
 # The working site can be find deployed on github pages:
 
-[Vue deployed website](http(s)://AlexisLaf.github.io/weblibrar)
-This doesn't seem to work from a bot.
+[Vue deployed website](https://AlexisLaf.github.io/weblibrar)
 
 ### Prototype
 

@@ -1,3 +1,4 @@
 module.exports = {
-    publicPath: '/weblibrar/'
+    publicPath: '/weblibrar/',
+    baseUrl: '/weblibrar/'
 }
