@@ -19,19 +19,37 @@ concurrency:
 
 
 jobs:
-  build_deploy_vue:
+  build_vue:
     runs-on: ubuntu-latest
     name: Build and Deploy Vue
     steps:
     - uses: actions/checkout@v7
     - uses: actions/configure-pages@v5
-    - name: git config
+
+    - name: Build vue application
       run: |
-        git config --global init.defaultBranch main
-    - id: Build-Deploy-Vue
-      uses: thefrustrateddev/vue-deploy-github-pages@v1.0.0
+            CONFIGFILE=vue.config.js
+            if [ ! -f "$CONFIGFILE" ]; then
+                echo "$CONFIGFILE does not exist."
+                echo "::error ::vue config file missing"
+                exit 1
+            fi
+            npm ci
+            npm run build
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        username: 'AlexisLaf'
-        reponame: 'weblibrar'
-        basebranchname: 'main'
-        token: ${{ secrets.GITHUB_TOKEN }} # no need to change this line this is used to create the branch in your application repository
+        path: "./dist"
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build_vue
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
